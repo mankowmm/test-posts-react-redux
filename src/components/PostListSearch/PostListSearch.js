@@ -1,6 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { filterPost } from '../../actions';
-import { connect } from 'react-redux'
 
 export class PostListSearchClass extends React.Component {
 
@@ -10,9 +10,10 @@ export class PostListSearchClass extends React.Component {
     }
 
     handleInputChange = () => {
-        //console.log('input changed - value:', this.inputRef.current.value);
         this.props.dispatch(filterPost(this.inputRef.current.value));
+        //this.props.onSearch(this.inputRef.current.value);
     }
+
     render() {
         return (
             <div>
@@ -22,4 +23,4 @@ export class PostListSearchClass extends React.Component {
     }
 }
 
-export const PostListSearch = connect()(PostListSearchClass);
+export const PostListSearch = connect()(PostListSearchClass)

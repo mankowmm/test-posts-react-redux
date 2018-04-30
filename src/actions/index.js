@@ -8,7 +8,6 @@ export const filterPost = (searchText) => {
     }
 }
 
-
 export const fetchPosts = () => {
     return {
         type: FETCH_POSTS

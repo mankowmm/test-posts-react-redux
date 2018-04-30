@@ -1,15 +1,11 @@
 import React from 'react';
 import './PostList.css';
 import { Loader } from '../Loader/Loader'
+import { PostListSearch } from '../PostListSearch/PostListSearch'
 
-export const PostList = ({postObj}) => {
-    console.log('posts:', postObj);
-
-    const renderLoader = ()=> (
-        <div>LOADING....</div>
-    )
-
-    const renderPostListRows = postObj.posts.map((post) => {
+export const PostList = ({posts, loading}) => {
+    
+    const renderPostListRows = posts.map((post) => {
         return (
             <div key={post.id} className="post-list-row">
                 <div>{post.id}</div>
@@ -19,10 +15,11 @@ export const PostList = ({postObj}) => {
         )
     })
     
-    const ret = postObj.loading ? (
+    const retDom = loading ? (
         <Loader/>
       ) : (
         <div className="post-list">
+            <PostListSearch/>
             <div className="post-list-header">
                 <div>ID</div>
                 <div>Title</div>
@@ -33,6 +30,6 @@ export const PostList = ({postObj}) => {
       );
 
     return (
-        ret
+        retDom
     )
 }
