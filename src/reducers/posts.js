@@ -17,7 +17,7 @@ export const postObj = (state = {posts: [], loading: false}, action) => {
             if(!action.searchText) {
                 newPostsList = state.posts;
             }
-            newPostsList = state.filter((post) => {
+            newPostsList = state.posts.filter((post) => {
                 const postTitle = post.title.toLowerCase();
                 const postBody = post.body.toLowerCase();
                 const actionSearchText = action.searchText.toLowerCase();
