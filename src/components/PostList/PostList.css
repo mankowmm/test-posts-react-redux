@@ -1,0 +1,21 @@
+.post-list {
+    margin: 30px;
+}
+
+.post-list-header, .post-list-row {
+    display: flex;
+}
+
+.post-list-header {
+    border: 1px solid gray;
+    font-weight: bold;
+}
+
+.post-list-header > div, .post-list-row > div {
+    width: 33.3%;
+    padding: 10px;
+}
+
+.post-list-row > div {
+    border:  1px dashed #c0c0c0;
+}
