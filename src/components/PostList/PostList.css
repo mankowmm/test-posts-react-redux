@@ -1,6 +1,13 @@
-.PostList {
+.PostListItems {
     display: flex;
     flex-wrap: wrap;
     margin: 10px;
+}
+
+.PostListSearchCont {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 30px;
 }
 

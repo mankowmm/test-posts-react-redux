@@ -5,14 +5,16 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 class AppNav extends Component {
 
     render() {
-        return  <Nav navbar>
-                    <NavItem>
-                        <NavLink tag={NavLinkRouter} to="/">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink tag={NavLinkRouter} to="/posts">Posts</NavLink>
-                    </NavItem>
-                </Nav>
+        return (
+            <Nav navbar>
+                <NavItem>
+                    <NavLink tag={NavLinkRouter} to="/">Home</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={NavLinkRouter} to="/posts">Posts</NavLink>
+                </NavItem>
+            </Nav>
+        )
     }
 };
 

@@ -11,13 +11,17 @@ export class PostListSearchClass extends React.Component {
 
     handleInputChange = () => {
         this.props.dispatch(filterPost(this.inputRef.current.value));
-        //this.props.onSearch(this.inputRef.current.value);
     }
 
     render() {
         return (
-            <div>
-                Search here <input name="postsearch" type="text" ref={this.inputRef} onChange={this.handleInputChange}/>
+            <div className="PostListSearch">
+                <div class="form-group row PostListSearchInputGroup">
+                    <label for="searchField" class="col-sm-5 col-form-label">Search here</label>
+                    <div class="col-sm-7">
+                        <input name="searchField" className="form-control" placeholder="Search in posts" type="text" ref={this.inputRef} onChange={this.handleInputChange}/>
+                    </div>
+                </div>
             </div>
         )
     }

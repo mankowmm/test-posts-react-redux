@@ -18,9 +18,11 @@ export const PostList = ({posts, loading, error}) => {
             return <PostListElement key={index} post={post}/>;
         });
         return  (
-            <div>
-                <PostListSearch/>
-                <div className="PostList">{ postListArray }</div>
+            <div className="PostList">
+                <div className="PostListSearchCont">
+                    <PostListSearch/>
+                </div>
+                <div className="PostListItems">{ postListArray }</div>
             </div>
         )  
     }
