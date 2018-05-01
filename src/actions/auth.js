@@ -1,4 +1,5 @@
-import { AUTHENTICATE, AUTHENTICATE_FAILURE, AUTHENTICATE_SUCCESS } from '../constants'
+import { AUTHENTICATE, AUTHENTICATE_FAILURE, AUTHENTICATE_SUCCESS, AUTHENTICATE_VALIDATION_FAILURE } from '../constants'
+import { AuthHelper, PASSWORD_VALIDATION_MESSAGE, USERNAME_VALIDATION_MESSAGE } from '../helpers/authHelper';
 
 export const authenticate = () => {
     return {
@@ -13,10 +14,18 @@ export const authenticateSuccess = (username) => {
     }
 };
 
-export const authenticateFailure = (error) => {
+export const authenticateFailure = (errorLogin) => {
     return {
         type: AUTHENTICATE_FAILURE,
-        error
+        errorLogin
+    }
+};
+
+export const authenticateValidationFailure = (errorUserName, errorPassword) => {
+    return {
+        type: AUTHENTICATE_VALIDATION_FAILURE,
+        errorUserName,
+        errorPassword
     }
 };
 
@@ -26,8 +35,24 @@ export const authenticateUser = (username, password) => {
     // Returns a dispatcher function
     // that dispatches an action at a later time
     return (dispatch) => {
-        // Returns a promise
-        dispatch(authenticate());
+        //validate inputs first
+        let errorUserName, errorPassword;
+
+        const isUserNameCorrect = AuthHelper.isUserNameValid(username);
+        const isPasswordCorrect = AuthHelper.isPasswordValid(password);
+       
+        if(!isUserNameCorrect) {
+            errorUserName = new Error(USERNAME_VALIDATION_MESSAGE)
+        }
+        if(!isPasswordCorrect) {
+            errorPassword = new Error(PASSWORD_VALIDATION_MESSAGE)
+        }
+        if(errorUserName || errorPassword) {
+            dispatch(authenticateValidationFailure(errorUserName, errorPassword));
+        } else {
+            // Returns a promise
+            dispatch(authenticate());
+            //fake login
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve('fakeUserName')
@@ -42,5 +67,7 @@ export const authenticateUser = (username, password) => {
                 dispatch(authenticateFailure(error));
                 throw(error);
             });
+        }
+        
     };
 };
