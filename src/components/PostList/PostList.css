@@ -5,9 +5,10 @@
 }
 
 .PostListSearchCont {
-    display: flex;
+    display: flex; 
     justify-content: flex-end;
+    margin-right: 25px;
     margin-top: 10px;
-    margin-right: 30px;
 }
+
 

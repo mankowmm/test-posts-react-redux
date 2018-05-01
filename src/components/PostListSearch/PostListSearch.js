@@ -16,12 +16,7 @@ export class PostListSearchClass extends React.Component {
     render() {
         return (
             <div className="PostListSearch">
-                <div class="form-group row PostListSearchInputGroup">
-                    <label for="searchField" class="col-sm-5 col-form-label">Search here</label>
-                    <div class="col-sm-7">
-                        <input name="searchField" className="form-control" placeholder="Search in posts" type="text" ref={this.inputRef} onChange={this.handleInputChange}/>
-                    </div>
-                </div>
+                <input name="searchField" className="form-control" placeholder="Search in posts" type="text" ref={this.inputRef} onChange={this.handleInputChange}/>
             </div>
         )
     }
