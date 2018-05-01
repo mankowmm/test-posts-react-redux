@@ -8,7 +8,7 @@ import './LoginForm.css';
 export const LoginForm = ({authenticatedUserName, authenticating, errorLogin, errorUserName, errorPassword, authenticateUser }) => {
 
     console.log('error', errorLogin, errorUserName, errorPassword);
-
+    console.log('authenticatedUserName:', authenticatedUserName);
     
 
     const renderForm = ()=> {

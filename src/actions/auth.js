@@ -37,10 +37,8 @@ export const authenticateUser = (username, password) => {
     return (dispatch) => {
         //validate inputs first
         let errorUserName, errorPassword;
-
         const isUserNameCorrect = AuthHelper.isUserNameValid(username);
         const isPasswordCorrect = AuthHelper.isPasswordValid(password);
-       
         if(!isUserNameCorrect) {
             errorUserName = new Error(USERNAME_VALIDATION_MESSAGE)
         }
@@ -55,13 +53,14 @@ export const authenticateUser = (username, password) => {
             //fake login
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    resolve('fakeUserName')
+                    resolve(username)
                 }, 2000)
             })
             .then(response => {
                 // Dispatch another action
                 // to consume data
-                dispatch(authenticateSuccess(response.data))
+                console.log('AUTH succes:', response);
+                dispatch(authenticateSuccess(response))
             })
             .catch(error => {
                 dispatch(authenticateFailure(error));
