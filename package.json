@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.x",
     "react-scripts": "1.1.4",
     "react-spinners": "^0.3.2",
+    "reactstrap": "^5.0.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
   },

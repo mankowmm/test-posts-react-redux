@@ -1,21 +1,12 @@
-import React from 'react';
+import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import App from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
-import { fetchPostsHttp } from './actions';
-import './index.css';
+import Root from './components/Root/Root'
+import { configureStore } from './stores';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { configureStore } from './stores'; 
-const store = configureStore();
-store.dispatch(fetchPostsHttp());
-
+const store = configureStore()
 
 render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
+  <Root store={store} />,
+  document.getElementById('root')
 )
-
-registerServiceWorker();

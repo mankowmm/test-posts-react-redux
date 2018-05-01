@@ -37,7 +37,6 @@ export const fetchPostsHttp = () => {
     return (dispatch) => {
         // Returns a promise
         dispatch(fetchPosts());
-
         return Axios.get(POST_ENDPOINT)
         .then(response => {
             // Dispatch another action
