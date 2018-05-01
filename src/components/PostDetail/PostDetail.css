@@ -1,0 +1,15 @@
+.PostDetail {
+    margin: 15px;
+}
+
+.PostDetail .card-title {
+    margin-bottom: 20px;
+}
+
+.PostDetail .card-subtitle {
+    margin-bottom: 20px;
+}
+
+.PostDetail .card-text {
+    margin-bottom: 20px;
+}

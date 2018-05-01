@@ -3,7 +3,7 @@ import { PostList } from '../components/PostList/PostList';
 import { connect } from 'react-redux';
 import { PostsHelper } from '../helpers/postsHelper';
 import { withRouter } from 'react-router'
-import { fetchPostsHttp } from '../actions';
+import { fetchPostsHttp } from '../actions/postList';
 
 class PostListPage extends React.Component {
 
@@ -17,9 +17,8 @@ class PostListPage extends React.Component {
     }
 }
 
-
 const getFilteredPosts = (postsObj, postsFilter) => {
-    console.log('postsObj:', postsObj);
+    //console.log('postsObj:', postsObj);
     const posts = PostsHelper.filterPostsByTitleOrBody(postsObj.posts, postsFilter.searchText);
     return posts;
 }

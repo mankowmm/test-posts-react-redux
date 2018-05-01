@@ -9,7 +9,7 @@ export class PostsHelper {
             const postBody = post.body.toLowerCase();
             const actionSearchText = searchText.toLowerCase();
             //console.log(`check if ${postTitle} contains ${actionSearchText}:`);
-            if(postTitle.includes(actionSearchText) || postBody.includes(actionSearchText)) {
+            if(postTitle.indexOf(actionSearchText) > -1 || postBody.indexOf(actionSearchText) > -1) {
                 return true;
             }
             return false;

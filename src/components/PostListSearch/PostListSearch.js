@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { filterPost } from '../../actions';
+import { filterPost } from '../../actions/postList';
 
 export class PostListSearchClass extends React.Component {
 
