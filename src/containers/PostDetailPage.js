@@ -23,8 +23,9 @@ class PostDetailPage extends React.Component {
 
 
 const mapStateToProps = state => ({
-    loading: state.postDetailObj.loading,
-    post: state.postDetailObj.post
+    loading: state.postDetail.loading,
+    error: state.postDetail.error,
+    post: state.postDetail.post
 })
   
 const mapDispatchToProps = (dispatch) => {

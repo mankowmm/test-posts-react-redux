@@ -17,7 +17,6 @@ export const fetchPostDetailSuccess = (post) => {
 export const fetchPostDetailFailure = (error) => {
     return {
         type: FETCH_POST_DETAIL_FAILURE,
-        post: {},
         error
     }
 };
@@ -37,7 +36,7 @@ export const fetchPostDetailsHttp = (postId) => {
                 dispatch(fetchPostDetailSuccess(response.data))
             })
             .catch(error => {
-                dispatch(fetchPostDetailFailure());
+                dispatch(fetchPostDetailFailure(error));
                 throw(error);
             });
     };

@@ -24,7 +24,6 @@ export const fetchPostsSuccess = (posts) => {
 export const fetchPostsFailure = (error) => {
     return {
         type: FETCH_POSTS_FAILURE,
-        posts: [],
         error
     }
 };
@@ -44,7 +43,7 @@ export const fetchPostsHttp = () => {
             dispatch(fetchPostsSuccess(response.data))
         })
         .catch(error => {
-            dispatch(fetchPostsFailure());
+            dispatch(fetchPostsFailure(error));
             throw(error);
         });
     };

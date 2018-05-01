@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import { postObj } from './posts';
+import { postsList } from './posts';
 import { postsFilter } from './postsFilter';
-import { postDetailObj } from './postDetail';
+import { postDetail } from './postDetail';
 
 // Add the reducer to your store on the `routing` key
 export default combineReducers({
-    postObj,
+    postsList,
     postsFilter,
-    postDetailObj
+    postDetail
 })

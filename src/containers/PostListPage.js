@@ -17,15 +17,15 @@ class PostListPage extends React.Component {
     }
 }
 
-const getFilteredPosts = (postsObj, postsFilter) => {
-    //console.log('postsObj:', postsObj);
-    const posts = PostsHelper.filterPostsByTitleOrBody(postsObj.posts, postsFilter.searchText);
+const getFilteredPosts = (inputPosts, postsFilter) => {
+    const posts = PostsHelper.filterPostsByTitleOrBody(inputPosts, postsFilter.searchText);
     return posts;
 }
 
 const mapStateToProps = state => ({
-    loading: state.postObj.loading,
-    posts: getFilteredPosts(state.postObj, state.postsFilter)
+    loading: state.postsList.loading,
+    error: state.postsList.error,
+    posts: getFilteredPosts(state.postsList.posts, state.postsFilter)
 })
   
 const mapDispatchToProps = (dispatch) => {

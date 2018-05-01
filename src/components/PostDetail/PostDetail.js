@@ -3,9 +3,10 @@ import React from 'react';
 import { Loader } from '../Loader/Loader'
 import { Card, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
 import './PostDetail.css';
 
-export const PostDetail = ({post, loading}) => {
+export const PostDetail = ({post, loading, error}) => {
     
     const renderCard = ()=> {
             return <Card>
@@ -18,11 +19,15 @@ export const PostDetail = ({post, loading}) => {
             </Card>
     }
 
-    const renderLoader = () => {
-        return <Loader/>    
+    let content;
+    if(loading) {
+        content = <Loader/>
+    } else if(error) {
+        content = <ErrorMessage errorMessage={error.message}/>
+    } else {
+        content = renderCard();
     }
-    const content = loading ? renderLoader() : renderCard();
-
+    
     return (
         <div className="PostDetail">{content}</div>
     )

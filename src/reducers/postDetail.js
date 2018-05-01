@@ -5,17 +5,25 @@ const INITIAL_STATE = {
     loading: false
 }
 
-export const postDetailObj = (state = INITIAL_STATE, action) => {
+export const postDetail = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case FETCH_POST_DETAIL:
             return Object.assign({}, state, {
-                loading: true
+                loading: true,
+                error: null,
             });
         case FETCH_POST_DETAIL_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
+                error: null,
                 post: action.post
             });  
+        case FETCH_POST_DETAIL_FAILURE:
+            return Object.assign({}, state, {
+                loading: false,
+                error: action.error,
+                post: {}
+            });      
         default:
             return state;
     }
