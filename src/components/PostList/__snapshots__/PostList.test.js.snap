@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostList component test suite should validate with snapshot 1`] = `
+<div
+  className="PostList"
+>
+  <div
+    className="PostListItems"
+  />
+</div>
+`;

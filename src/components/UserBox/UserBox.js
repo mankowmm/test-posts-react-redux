@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tooltip } from 'reactstrap';
 import './UserBox.css';
 
 export const UserBox = ({isAuthenticated, authenticatedUserName, logoutAction}) => {

@@ -1,27 +1,28 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
-import { withRouter } from 'react-router-dom'
 import './LoginForm.css';
 
-export const LoginForm = ({ errorLogin, errorUserName, errorPassword, authenticateUser }) => {
+export const LoginForm = ({ errorLogin, errorUserName, errorPassword, authenticateUser, onChange }) => {
+
+    let userNameVal;
+    let passwordVal;
+
+    const onSubmit = e => {
+        e.preventDefault();
+        authenticateUser(userNameVal, passwordVal);
+    }
 
     const renderForm = ()=> {
-
         return (
-            <Form onSubmit={(e) => {
-                    const userNameVal = e.target.username.value;
-                    const passwordVal = e.target.password.value;
-                    authenticateUser(userNameVal, passwordVal);
-                    e.preventDefault();
-                }}>
+            <Form onSubmit={onSubmit}>
                 <FormGroup>
                     <Label for="username">Username</Label>
-                    <Input type="text" name="username" id="username" placeholder="User Name" required />
+                    <Input type="text" name="username" id="username" placeholder="User Name" onChange={(e) => { userNameVal = e.target.value }} required />
                     <div id="usernamevalidation"></div>
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Password</Label>
-                    <Input type="password" name="password" id="password" placeholder="Password" required />
+                    <Input type="password" name="password" id="password" placeholder="Password" onChange={(e) => { passwordVal = e.target.value }} required />
                     <div id="passwordvalidation"></div>
                 </FormGroup>
                 <Button>Submit</Button>

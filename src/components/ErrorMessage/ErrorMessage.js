@@ -19,7 +19,7 @@ export class ErrorMessage extends React.Component {
   render() {
     return (
       <div>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className="ErrorMessage">
           <ModalHeader toggle={this.toggle}>Ooops.. error occured</ModalHeader>
           <ModalBody>
             {this.props.errorMessage}

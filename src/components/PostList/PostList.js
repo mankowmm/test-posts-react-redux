@@ -4,7 +4,7 @@ import { Loader } from '../Loader/Loader'
 import PostListElement from './PostListElement';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
 
-export const PostList = ({authenticatedUserName, posts, loading, error}) => {
+export const PostList = ({posts, loading, error}) => {
 
     if(error) {
         return (
