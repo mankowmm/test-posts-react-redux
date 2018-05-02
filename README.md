@@ -2,7 +2,7 @@ Simple app displaying created with React, Redux and React Router (+4)
 
 Components with tests:
 
-https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/PostList
+https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/PostList (PostList)
 
 https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/LoginForm
 
