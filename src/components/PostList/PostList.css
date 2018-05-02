@@ -3,12 +3,3 @@
     flex-wrap: wrap;
     margin: 10px;
 }
-
-.PostListSearchCont {
-    display: flex; 
-    justify-content: flex-end;
-    margin-right: 25px;
-    margin-top: 10px;
-}
-
-

@@ -1,11 +1,10 @@
 import React from 'react';
 import './PostList.css';
 import { Loader } from '../Loader/Loader'
-import { PostListSearch } from '../PostListSearch/PostListSearch'
 import PostListElement from './PostListElement';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
 
-export const PostList = ({posts, loading, error}) => {
+export const PostList = ({authenticatedUserName, posts, loading, error}) => {
 
     if(error) {
         return (
@@ -19,9 +18,6 @@ export const PostList = ({posts, loading, error}) => {
         });
         return  (
             <div className="PostList">
-                <div className="PostListSearchCont">
-                    <PostListSearch/>
-                </div>
                 <div className="PostListItems">{ postListArray }</div>
             </div>
         )  

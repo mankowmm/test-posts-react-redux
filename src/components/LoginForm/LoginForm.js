@@ -1,19 +1,12 @@
 import React from 'react';
-import { Loader } from '../Loader/Loader'
-import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
-import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
-import { AuthHelper ,PASSWORD_VALIDATION_MESSAGE, USERNAME_VALIDATION_MESSAGE } from '../../helpers/authHelper';
+import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
+import { withRouter } from 'react-router-dom'
 import './LoginForm.css';
 
-export const LoginForm = ({authenticatedUserName, authenticating, errorLogin, errorUserName, errorPassword, authenticateUser }) => {
-
-    console.log('error', errorLogin, errorUserName, errorPassword);
-    console.log('authenticatedUserName:', authenticatedUserName);
-    
+export const LoginForm = withRouter(({authenticatedUserName, isAuthenticated, authenticating, errorLogin, errorUserName, errorPassword, authenticateUser, history }) => {
 
     const renderForm = ()=> {
-        
-   
+
         return (
             <Form onSubmit={(e) => {
                     const userNameVal = e.target.username.value;
@@ -53,4 +46,4 @@ export const LoginForm = ({authenticatedUserName, authenticating, errorLogin, er
     return (
         <div className="LoginForm">{content}<br/>{errorMessageUserName}{errorMessagePassword}</div>
     )
-}
+})

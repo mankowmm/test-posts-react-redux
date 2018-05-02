@@ -6,8 +6,11 @@ import { LoginForm } from '../components/LoginForm/LoginForm';
 
 class LoginPage extends React.Component {
 
-    componentDidMount() {
-        //this.props.fetchPostDetail(this.currentPostId);
+    componentDidUpdate() {
+        //redirect to home/main when authentication success
+        if(this.props.isAuthenticated) {
+            this.props.history.push('/');
+        }
     }
     render() {
         return (
@@ -16,20 +19,20 @@ class LoginPage extends React.Component {
     }
 }
 
-
-const mapStateToProps = state => ({
-    authenticatedUserName: state.userAuthState.authenticatedUserName,
-    authenticating: state.userAuthState.authenticating,
-    errorLogin: state.userAuthState.errorLogin,
-    errorUserName: state.userAuthState.errorUserName,
-    errorPassword: state.userAuthState.errorPassword,
-    
-})
+const mapStateToProps = (state) => {
+    return {
+        authenticatedUserName: state.userAuthState.authenticatedUserName,
+        isAuthenticated: state.userAuthState.isAuthenticated,
+        authenticating: state.userAuthState.authenticating,
+        errorLogin: state.userAuthState.errorLogin,
+        errorUserName: state.userAuthState.errorUserName,
+        errorPassword: state.userAuthState.errorPassword
+    }
+}
   
 const mapDispatchToProps = (dispatch) => {
     return {
         authenticateUser: (username, password) => {
-            console.log('will auth user with params:', username, password);
             dispatch(authenticateUser(username, password))
         }
     }

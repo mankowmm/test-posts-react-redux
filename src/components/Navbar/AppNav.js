@@ -13,9 +13,9 @@ class AppNav extends Component {
                 <NavItem>
                     <NavLink tag={NavLinkRouter} to="/posts">Posts</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                     <NavLink tag={NavLinkRouter} to="/login">Login</NavLink>
-                </NavItem>
+                </NavItem> */}
             </Nav>
         )
     }

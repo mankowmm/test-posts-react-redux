@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { PostsHelper } from '../helpers/postsHelper';
 import { withRouter } from 'react-router'
 import { fetchPostsHttp } from '../actions/postList';
+import { logoutUser } from '../actions/auth';
+import { UserBox } from '../components/UserBox/UserBox';
+import { PostListSearch } from '../components/PostListSearch/PostListSearch'
+
+import './PostListPage.css';
 
 class PostListPage extends React.Component {
 
@@ -12,7 +17,14 @@ class PostListPage extends React.Component {
     }
     render() {
         return (
-            <PostList {...this.props}/>
+            <div>
+                <div className="PostListPageTopbar">
+                    <UserBox {...this.props}/>
+                    <PostListSearch/>
+                </div>
+                
+                <PostList {...this.props}/>
+            </div>
         )
     }
 }
@@ -23,6 +35,7 @@ const getFilteredPosts = (inputPosts, postsFilter) => {
 }
 
 const mapStateToProps = state => ({
+    authenticatedUserName: state.userAuthState.authenticatedUserName,
     loading: state.postsList.loading,
     error: state.postsList.error,
     posts: getFilteredPosts(state.postsList.posts, state.postsFilter)
@@ -32,6 +45,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchPostList: () => {
             dispatch(fetchPostsHttp())
+        },
+        logoutAction: () => {
+            console.log('will logout user..');
+            dispatch(logoutUser())
         }
     }
   }

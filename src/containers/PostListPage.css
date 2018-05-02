@@ -1,0 +1,7 @@
+.PostListPageTopbar {
+    display: flex; 
+    justify-content: space-between;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 10px;
+}
