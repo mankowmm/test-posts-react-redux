@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import { withRouter } from 'react-router-dom'
 import './LoginForm.css';
 
-export const LoginForm = withRouter(({authenticatedUserName, isAuthenticated, authenticating, errorLogin, errorUserName, errorPassword, authenticateUser, history }) => {
+export const LoginForm = ({ errorLogin, errorUserName, errorPassword, authenticateUser }) => {
 
     const renderForm = ()=> {
 
@@ -46,4 +46,4 @@ export const LoginForm = withRouter(({authenticatedUserName, isAuthenticated, au
     return (
         <div className="LoginForm">{content}<br/>{errorMessageUserName}{errorMessagePassword}</div>
     )
-})
+}
