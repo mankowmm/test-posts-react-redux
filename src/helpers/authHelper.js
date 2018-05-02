@@ -21,4 +21,11 @@ export class AuthHelper {
         }
         return false;
     }
+    static fakeLogin(username, password) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(username)
+            }, 200)
+        })
+    }
 }

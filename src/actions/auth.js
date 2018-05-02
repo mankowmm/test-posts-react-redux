@@ -40,27 +40,43 @@ export const authenticateLogoutSuccess = () => {
     }
 };
 
+export const errorUserNotAuthenticated = new Error('User not authenticated');
 export const isUserAuthenticated = () => {
     return (dispatch) => {
         const authenticatedUserName = localStorage.getItem(AUTHENTICATE_LOCAL_STORAGE_KEY);
         if(authenticatedUserName != null) {
             dispatch(authenticateSuccess(authenticatedUserName));
         } else {
-            dispatch(authenticateFailure(new Error('User not authenticated')));
+            dispatch(authenticateFailure(errorUserNotAuthenticated));
         }
     }
 };
 
 export const logoutUser = () => {
     return (dispatch) => {
-        console.log('will destrony local storage..');
         localStorage.removeItem(AUTHENTICATE_LOCAL_STORAGE_KEY);
         dispatch(authenticateLogoutSuccess());
     }
 
 }
 
+export const errorUserNameValidation = new Error(USERNAME_VALIDATION_MESSAGE);
+export const errorPasswordValidation = new Error(PASSWORD_VALIDATION_MESSAGE);
 //Async Action
+
+export const loginUser = (dispatch, username, password) => {
+    return AuthHelper.fakeLogin(username, password)
+        .then(response => {
+            // Dispatch another action
+            // to consume data
+            localStorage.setItem(AUTHENTICATE_LOCAL_STORAGE_KEY, response);
+            dispatch(authenticateSuccess(response))
+        })
+        .catch(error => {
+            dispatch(authenticateFailure(error));
+            throw(error);
+        });
+}
 export const authenticateUser = (username, password) => {
     // Returns a dispatcher function
     // that dispatches an action at a later time
@@ -70,10 +86,10 @@ export const authenticateUser = (username, password) => {
         const isUserNameCorrect = AuthHelper.isUserNameValid(username);
         const isPasswordCorrect = AuthHelper.isPasswordValid(password);
         if(!isUserNameCorrect) {
-            errorUserName = new Error(USERNAME_VALIDATION_MESSAGE)
+            errorUserName = errorUserNameValidation
         }
         if(!isPasswordCorrect) {
-            errorPassword = new Error(PASSWORD_VALIDATION_MESSAGE)
+            errorPassword = errorPasswordValidation
         }
         if(errorUserName || errorPassword) {
             dispatch(authenticateValidationFailure(errorUserName, errorPassword));
@@ -81,22 +97,7 @@ export const authenticateUser = (username, password) => {
             // Returns a promise
             dispatch(authenticate());
             //fake login
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve(username)
-                }, 2000)
-            })
-            .then(response => {
-                // Dispatch another action
-                // to consume data
-                console.log('AUTH succes:', response);
-                localStorage.setItem(AUTHENTICATE_LOCAL_STORAGE_KEY, response);
-                dispatch(authenticateSuccess(response))
-            })
-            .catch(error => {
-                dispatch(authenticateFailure(error));
-                throw(error);
-            });
+            loginUser(dispatch, username, password);
         }
         
     };
