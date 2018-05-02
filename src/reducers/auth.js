@@ -1,8 +1,13 @@
 import { AUTHENTICATE, AUTHENTICATE_SUCCESS, AUTHENTICATE_FAILURE, AUTHENTICATE_VALIDATION_FAILURE, AUTHENTICATE_LOGOUT_SUCCESS } from '../constants';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
     isAuthenticated: false,
-    authenticatedUserName: null
+    authenticating: false,
+    authenticatedUserName: null,
+    errorUserName: null,
+    errorPassword: null,
+    errorLogin: null
+
 }
 
 export const userAuthState = (state = INITIAL_STATE, action) => {
