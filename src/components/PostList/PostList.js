@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostList.css';
 import { Loader } from '../Loader/Loader'
-import PostListElement from './PostListElement';
+import { PostListElement } from './PostListElement';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage'
 
 export const PostList = ({posts, loading, error}) => {

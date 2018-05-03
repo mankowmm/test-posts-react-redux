@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router'
 import { PostDetail } from '../components/PostDetail/PostDetail';
 import { fetchPostDetailsHttp } from '../actions/postDetail';
 
@@ -36,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default withRouter(connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PostDetailPage))
+)(PostDetailPage)

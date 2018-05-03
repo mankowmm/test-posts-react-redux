@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostListElement component test suite should validate with snapshot 1`] = `
+<div
+  className="PostListElement"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        <span>
+          <b>
+            UserId
+          </b>
+          : 
+        </span>
+        <span
+          className="userIdTxt"
+        >
+          1
+        </span>
+      </h5>
+      <br />
+      <h6
+        className="card-subtitle"
+      >
+        <span>
+          <b>
+            Title
+          </b>
+          : 
+        </span>
+        <span
+          className="titleTxt"
+        >
+          POSTMOCK
+        </span>
+      </h6>
+      <br />
+      <a
+        className="btn btn-secondary"
+        href="/post/1"
+        onClick={[Function]}
+      >
+        See detail
+      </a>
+    </div>
+  </div>
+</div>
+`;

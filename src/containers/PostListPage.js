@@ -2,7 +2,6 @@ import React from 'react';
 import { PostList } from '../components/PostList/PostList';
 import { connect } from 'react-redux';
 import { PostsHelper } from '../helpers/postsHelper';
-import { withRouter } from 'react-router'
 import { fetchPostsHttp } from '../actions/postList';
 import { logoutUser } from '../actions/auth';
 import { UserBox } from '../components/UserBox/UserBox';
@@ -53,7 +52,7 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default withRouter(connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PostListPage))
+)(PostListPage)

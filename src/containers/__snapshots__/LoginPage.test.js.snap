@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component test suite should validate with snapshot 1`] = `
+<div
+  className="LoginForm"
+>
+  <form
+    className=""
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="username"
+      >
+        Username
+      </label>
+      <input
+        className="form-control"
+        id="username"
+        name="username"
+        onChange={[Function]}
+        placeholder="User Name"
+        required={true}
+        type="text"
+      />
+      <div
+        id="usernamevalidation"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+      />
+      <div
+        id="passwordvalidation"
+      />
+    </div>
+    <button
+      className="btn btn-secondary"
+      onClick={[Function]}
+      type={undefined}
+    >
+      Submit
+    </button>
+  </form>
+  <br />
+</div>
+`;
