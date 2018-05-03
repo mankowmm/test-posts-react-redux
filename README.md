@@ -8,12 +8,6 @@ https://github.com/facebook/create-react-app
 3 related "container" components that pass state to "dump" stateless components 
 
 
-Stateless components with tests:
-
-https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/PostList
-
-https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/LoginForm
-
 Redux Actions with tests:
 
 https://github.com/mankowmm/test-posts-react-redux/blob/master/src/actions/auth.test.js
@@ -21,5 +15,14 @@ https://github.com/mankowmm/test-posts-react-redux/blob/master/src/actions/auth.
 Reducer with tests:
 
 https://github.com/mankowmm/test-posts-react-redux/blob/master/src/reducers/auth.test.js
+
+
+Stateless example components with tests:
+
+https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/PostList
+
+https://github.com/mankowmm/test-posts-react-redux/tree/master/src/components/LoginForm
+
+
 
 
